@@ -1,5 +1,5 @@
 setActivePage('nav_user');
-document.getElementById('stats-generator').click();
+
 
 if (document.querySelector('.jscolor').value == '000000' ){
 	document.getElementById('off-button').classList.add('disabled');
