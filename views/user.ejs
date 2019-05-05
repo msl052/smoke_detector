@@ -3,7 +3,7 @@
 <% include ./partials/header %>
 
 <!--- USER INPUT FORM ---->
-<form class="ui form">
+<form class="ui form" action='/configure' method='post'>
 	<h4 class="ui dividing header">User Information</h4>
 	<div class="field">
 		<label>Name</label>
@@ -339,9 +339,39 @@
       <option value="ZM">Zambia</option>
       <option value="ZW">Zimbabwe</option>
     </select>
-  </div>
     </div>
-    <button class="ui button" type="submit">Submit</button>
+    </div>
+    <div class="ui form">
+        <div class="inline fields">
+        <label>Phone Number</label>
+            <div class="field">
+                <input type="text" placeholder="(xxx)">
+            </div>
+            <div class="field">
+                <input type="text" placeholder="xxx">
+            </div>
+            <div class="field">
+            <input type="text" placeholder="xxxx">
+            </div>
+        </div>
+    </div>
+    <div class="ui form">
+        <div class="inline fields">
+        <label>Emergency Phone Number</label>
+            <div class="field">
+                <input type="text" placeholder="(xxx)">
+            </div>
+            <div class="field">
+                <input type="text" placeholder="xxx">
+            </div>
+            <div class="field">
+            <input type="text" placeholder="xxxx">
+            </div>
+        </div>
+    </div>
+    <div class='two wide field'>
+    <input type='submit' class='ui submit button' name='configure' value='Submit'>
+    </div>
 </form>
 
 
