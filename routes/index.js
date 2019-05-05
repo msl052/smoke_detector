@@ -59,4 +59,16 @@ router.get('/camera',(req, res) => {
     });
 });
 
+router.post('/configure', (req, res) => {
+  console.log("submit button pushed");
+	db.Settings.findOneAndUpdate({}, req.body.setting, {'new': true, upsert: true})
+	.then( function(edited) {
+		console.log(edited);
+		res.redirect('/');
+	})
+	.catch( function(err) {
+		res.send(err);
+	});
+});
+
 module.exports = router;
