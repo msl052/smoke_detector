@@ -42,8 +42,13 @@ router.get('/camera',(req, res) => {
 });
 
 router.post('/configure', (req, res) => {
+<<<<<<< HEAD
 	console.log("submit button pressed");
 	db.MyProfile.findOneAndUpdate({}, req.body.myprofile, {'new': true, upsert: true})
+=======
+  console.log("submit button pushed");
+	db.Settings.findOneAndUpdate({}, req.body.setting, {'new': true, upsert: true})
+>>>>>>> 5d9f326d3db83e811e8302d09c5e8aca09d468ee
 	.then( function(edited) {
 		console.log(edited);
 		console.log("submit button pressed");
