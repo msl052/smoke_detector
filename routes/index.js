@@ -3,29 +3,11 @@ var	express		= require('express'),
 	  router		= express.Router();
 
 router.get('/',(req, res) => {
-    var setting;
+    var myprofile;
     
-	db.Settings.findOne({})
+	db.MyProfile.findOne({})
 	.then( function(result){
-        setting = result;
-		return db.Stats.findOne();
-	})
-	.then( function(statResult) {
-		var timeInHot = statResult.timeInHot/statResult.timeTotal;
-		var timeInCold = statResult.timeInCold/statResult.timeTotal;
-		var timeInHumid = statResult.timeInHumid/statResult.timeTotal;
-		var timeInDry = statResult.timeInDry/statResult.timeTotal;
-		var timeOn = statResult.timeOn/statResult.timeTotal;
-
-		var stats = {
-			avgTemperature: statResult.avgTemperature.toFixed(2),
-			avgHumidity: statResult.avgHumidity.toFixed(2),
-			avgBrightness: statResult.avgBrightness,
-			temperatureData: [timeInHot, 1-timeInHot-timeInCold, timeInCold],
-			humidityData: [timeInHumid, 1-timeInHumid-timeInDry, timeInDry],
-			onData: [timeOn, 1-timeOn]
-		};
-		res.render('user', {settings: setting, stats: stats});
+        myprofile = result;
 	})
 	.catch ( function(err) {
 		res.send(err);
@@ -60,9 +42,11 @@ router.get('/camera',(req, res) => {
 });
 
 router.post('/configure', (req, res) => {
-	db.Settings.findOneAndUpdate({}, req.body.setting, {'new': true, upsert: true})
+	console.log("submit button pressed");
+	db.MyProfile.findOneAndUpdate({}, req.body.myprofile, {'new': true, upsert: true})
 	.then( function(edited) {
 		console.log(edited);
+		console.log("submit button pressed");
 		res.redirect('/');
 	})
 	.catch( function(err) {
