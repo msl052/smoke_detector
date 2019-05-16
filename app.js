@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 /*************** ROUTES ****************/
-//app.use('/', indexRoutes);
+app.use('/', indexRoutes);
 
 app.get('/', (req,res) => {
   res.render('user');

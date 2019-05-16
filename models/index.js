@@ -8,3 +8,4 @@ mongoose.connect(process.env.DATABASE);
 console.log(process.env.DATABASE);
 mongoose.promise = Promise;
 
+module.exports.MyProfile = require('./myprofile');

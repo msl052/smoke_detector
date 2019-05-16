@@ -2,29 +2,23 @@ var mongoose = require('mongoose');
 
 
 var myprofileSchema = new mongoose.Schema({
-	first-name: {
+	firstName: {
 		type: String,
+		required: true
 		//required: 'Must record first name'
 	},
-	last-name: {
+	lastName: {
 		type: String,
+		required: true
 		//required: 'Must record last name'
 	},
 	address: {
 		type: String,
 		//required: 'Must record street address'
 	},
-	address-2: {
+	address2: {
 		type: String,
 		//required: 'Must record apartment number'
-	},
-	stateName: {
-		type: String,
-		//required: 'Must record state name'
-	},
-	countryName: {
-		type: String,
-		//required: 'Must record country name'
 	},
 	phoneNumber: {
 		type: String,
@@ -34,7 +28,6 @@ var myprofileSchema = new mongoose.Schema({
 		type: String,
 		//required: 'Must record emergency number'
 	}
-
 });
 
 var MyProfile = mongoose.model('MyProfile', myprofileSchema);
