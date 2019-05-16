@@ -1,0 +1,66 @@
+<% include ./partials/head %>
+<% include ./partials/header %>
+
+
+<!--- USER INPUT FORM ---->
+<form class="ui form" action='/configure' method='post'>
+	<h1 class="ui centered header">Please Input Your Contact Information</h1>
+	<div class="field">
+		<label>Name</label>
+		<div class="two fields">
+			<div class="field">
+				<input type="text" name="firstName" placeholder="First Name">
+			</div>
+			<div class="field">
+				<input type="text" name="lastName" placeholder="Last Name">
+			</div>
+		</div>
+    </div>
+    <div class="field">
+        <label>Address</label>
+        <div class="fields">
+            <div class="twelve wide field">
+                <input type="text" name="address" placeholder="Street Address">
+            </div>
+            <div class="four wide field">
+                <input type="text" name="address2" placeholder="Apt #">
+            </div>
+        </div>
+    </div>
+    
+    <div class="ui form">
+        <div class="inline fields">
+        <label>Phone Number</label>
+            <div class="field">
+                <input type="text" name="usersNumber" placeholder="xxx-xxx-xxxx">
+            </div>
+        </div>
+    </div>
+    <div class="ui form">
+        <div class="inline fields">
+            <input type='checkbox' name='options[emergencyContact]'> 
+                    <label>Emergency Phone Number</label>
+                        <div class="field">
+                            <input type="text" name="emergencyNumber" placeholder="xxx-xxx-xxxx">
+                        </div>
+       <div class="inline fields">
+            <input type='checkbox' name='options[911]'> 
+                  <label> Police </label>
+                        <div class="field">
+                              <input type="text" name="Police" value="911">
+                              </div>
+        </div>
+    </div>
+    <div class='two wide field'>
+      <input type='submit' class='ui submit button' name='configure' value='Submit'>
+    </div>
+
+</form>
+
+
+<script type="text/javascript" src='/js/user.js'></script>
+<script type="text/javascript" scr='/js/jscolor.js'></script>
+<script type="text/javascript">
+  setActivePage('nav_user');
+</script>
+<% include ./partials/foot %>
