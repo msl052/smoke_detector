@@ -1,24 +1,44 @@
 <% include ./partials/head %>
+<<<<<<< HEAD
 
 <% include ./partials/header %>
 
 <!--- USER INPUT FORM ---->
 <form class="ui form" action='/configure' method='post'>
 	<h4 class="ui dividing header">User Information</h4>
+=======
+<% include ./partials/header %>
+
+
+<!--- USER INPUT FORM ---->
+<form class="ui form" action='/configure' method='post'>
+	<h1 class="ui centered header">Please Input Your Contact Information</h1>
+>>>>>>> dcbcadc2e56b84134d8953e43be10a95165b2ea3
 	<div class="field">
 		<label>Name</label>
 		<div class="two fields">
 			<div class="field">
+<<<<<<< HEAD
 				<input type="text" name="myprofile[firstName]" placeholder="First Name">
 			</div>
 			<div class="field">
 				<input type="text" name="myprofile[lastName]" placeholder="Last Name">
 			</div>
 		</div>
+=======
+				<input type="text" name="firstName" placeholder="First Name">
+			</div>
+			<div class="field">
+				<input type="text" name="lastName" placeholder="Last Name">
+			</div>
+		</div>
+    </div>
+>>>>>>> dcbcadc2e56b84134d8953e43be10a95165b2ea3
     <div class="field">
         <label>Address</label>
         <div class="fields">
             <div class="twelve wide field">
+<<<<<<< HEAD
                 <input type="text" name="myprofile[address]" placeholder="Street Address">
             </div>
             <div class="four wide field">
@@ -340,16 +360,31 @@
             </select>
         </div>
     </div>
+=======
+                <input type="text" name="address" placeholder="Street Address">
+            </div>
+            <div class="four wide field">
+                <input type="text" name="address2" placeholder="Apt #">
+            </div>
+        </div>
+    </div>
+    
+>>>>>>> dcbcadc2e56b84134d8953e43be10a95165b2ea3
     <div class="ui form">
         <div class="inline fields">
         <label>Phone Number</label>
             <div class="field">
+<<<<<<< HEAD
                 <input type="text" name='myprofile[phoneNumber]' placeholder="(xxx) xxx xxxx">
+=======
+                <input type="text" name="usersNumber" placeholder="xxx-xxx-xxxx">
+>>>>>>> dcbcadc2e56b84134d8953e43be10a95165b2ea3
             </div>
         </div>
     </div>
     <div class="ui form">
         <div class="inline fields">
+<<<<<<< HEAD
         <label>Emergency Phone Number</label>
             <div class="field">
                 <input type="text" name='myprofile[emergencyNumber]' placeholder="(xxx) xxx xxxx">
@@ -361,8 +396,34 @@
       <input type='submit' class='ui submit button' name='configure' value='Submit'>
     </div>
   </div>
+=======
+            <input type='checkbox' name='options[emergencyContact]'> 
+                    <label>Emergency Phone Number</label>
+                        <div class="field">
+                            <input type="text" name="emergencyNumber" placeholder="xxx-xxx-xxxx">
+                        </div>
+       <div class="inline fields">
+            <input type='checkbox' name='options[911]'> 
+                  <label> Police </label>
+                        <div class="field">
+                              <input type="text" name="Police" value="911">
+                              </div>
+        </div>
+    </div>
+    <div class='two wide field'>
+      <input type='submit' class='ui submit button' name='configure' value='Submit'>
+    </div>
+
+>>>>>>> dcbcadc2e56b84134d8953e43be10a95165b2ea3
 </form>
 
 
 <script type="text/javascript" src='/js/user.js'></script>
+<<<<<<< HEAD
+=======
+<script type="text/javascript" scr='/js/jscolor.js'></script>
+<script type="text/javascript">
+  setActivePage('nav_user');
+</script>
+>>>>>>> dcbcadc2e56b84134d8953e43be10a95165b2ea3
 <% include ./partials/foot %>

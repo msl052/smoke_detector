@@ -1,0 +1,73 @@
+<% include ./partials/head %>
+<% include ./partials/header %>
+
+<!-- <p>
+      <%= userInfo.firstName %>
+</p> -->
+
+<!--- USER INPUT FORM ---->
+<form class="ui form" action='/configure' method='post'>
+	<h1 class="ui centered header">Your Current Contact Information</h1>
+	<div class="field">
+		<label>Name</label>
+		<div class="two fields">
+			<div class="field">
+			<input type='text' value='<%= userInfo.firstName %>'>
+			</div>
+			<div class="field">
+				<input type="text" name="lastName" placeholder="Last Name">
+			</div>
+		</div>
+    </div>
+    <div class="field">
+        <label>Address</label>
+        <div class="fields">
+            <div class="twelve wide field">
+                <input type="text" name="address" placeholder="Street Address">
+            </div>
+        </div>
+    </div>
+    <div class="ui form">
+        <div class="inline fields">
+        <label>Phone Number</label>
+            <div class="field">
+                <input type="text" name="usersAreaCode" placeholder="(xxx)">
+            </div>
+            <div class="field">
+                <input type="text" name="usersNumber1" placeholder="xxx">
+            </div>
+            <div class="field">
+            <input type="text" name="usersNumber2" placeholder="xxxx">
+            </div>
+        </div>
+    </div>
+    <div class="ui form">
+        <div class="inline fields">
+            <input type='checkbox' name='options[emergencyContact]'> 
+                    <label>Emergency Phone Number</label>
+                    <div class='control'>
+                            <input type="text" name="emergencyNumber">
+                        </div>
+            </div>
+          <div class="inline fields">              
+            <input type='checkbox' name='options[911]'> 
+                        <label> Police </label>
+                        <div class="field">
+                  <div class='control'>
+                              <input type="text" name="Police" value="911">
+                              </div>
+                  </div>
+        </div>
+    </div>
+
+
+</form>
+
+
+<script type="text/javascript" src='/js/user.js'></script>
+<script type="text/javascript" scr='js/index.js'></script>
+<script type="text/javascript">
+      setActivePage('current_info');
+</script>
+<% include ./partials/foot %>
+
