@@ -2,6 +2,7 @@ var	express		= require('express'),
 	  db     		= require('../models'),
 	  router		= express.Router();
 
+
 router.get('/',(req, res) => {
     var myprofile;
     
@@ -12,13 +13,13 @@ router.get('/',(req, res) => {
 	.catch ( function(err) {
 		res.send(err);
 	});
+
 });
 
 
 router.post('/configure', (req, res) => {
 	console.log("submit button pressed");
-	res.redirect('/');
-    /*db.MyProfile.findOneAndUpdate({}, req.body.myprofile, {'new': true, upsert: true})
+    db.MyProfile.findOneAndUpdate({}, req.body.myprofile, {'new': true, upsert: true})
     .then( function(edited) {
 		console.log(edited);
 		console.log("submit button pressed");
@@ -26,7 +27,8 @@ router.post('/configure', (req, res) => {
 	})
 	.catch( function(err) {
 		res.send(err);
-	});*/
+	});
 });
 
 module.exports = router;
+
