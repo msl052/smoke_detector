@@ -10,8 +10,19 @@ var	express		= require('express'),
   .catch( function(err) {
     res.send(err);
   });
-});
-*/
+});*/
+
+
+/*router.get('/userinfo', (req, res) => {
+   db.MyProfile.findOne({})
+  .then( function(settings){
+    console.log("stuff happened");
+  })
+  .catch( function(err) {
+    res.send(err);
+  });
+});*/
+
 // Fill routes for camera here
 //router.get('/camera',(req, res) => {
   

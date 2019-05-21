@@ -22,6 +22,8 @@ app.get('/', (req,res) => {
 app.get('/camera', (req,res) => {
   res.render('camera');
 });
-
+app.get('/userinfo', (req,res) => {
+    res.render('userinfo');
+});
 
 app.listen(app.get('port'),() => console.log('Listening on port ' + app.get('port')));
