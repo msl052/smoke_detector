@@ -1,22 +1,34 @@
 var	express		= require('express'),
-	  db     		= require('../models'),
-	  router		= express.Router();
+	db     		= require('../models'),
+	router		= express.Router();
 
-/*router.get('/',(req, res) => {
+router.get('/', (req,res) => {
+  res.render('user');
+});
+router.get('/camera', (req,res) => {
+  res.render('camera');
+});
+
+/*
+router.get('/user',(req, res) => {
   db.MyProfile.findOne({})
-  .then( function(settings){
-    console.log("stuff happened");
+  .then( function(userinfo){
+    setting = userinfo;
+    console.log("get /user");
+    res.render('user');
+    
   })
   .catch( function(err) {
     res.send(err);
   });
-});*/
+});
 
 
-/*router.get('/userinfo', (req, res) => {
+router.get('/camera', (req, res) => {
    db.MyProfile.findOne({})
   .then( function(settings){
-    console.log("stuff happened");
+    console.log("get /camera");
+    res.render('camera');
   })
   .catch( function(err) {
     res.send(err);

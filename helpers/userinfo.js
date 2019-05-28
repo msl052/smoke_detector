@@ -2,15 +2,15 @@ var db = require('../models');
 
 exports.getUserInfo = function(req, res) {
     db.MyProfile.find()
-    .then( function(data) {
-        res.json(data);
+    .then( function(userinfo) {
+        res.json(userinfo);
     })
     .catch( function(err) {
         res.send(err);
     });
 };
 
-exports.textedData = function(req, res) {
+exports.textedUserInfo = function(req, res) {
   res.json({message: 'Texted the User'});
 };
 
@@ -26,8 +26,8 @@ exports.deleteUserInfo = function(req, res) {
 
 exports.getOneUserInfo = function(req, res) {
     db.MyProfile.findById(req.params.id)
-    .then( function(foundData) {
-        res.json(foundData);
+    .then( function(foundUserInfo) {
+        res.json(foundUserInfo);
     })
     .catch(function (err) {
         res.send(err);

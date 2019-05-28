@@ -6,13 +6,13 @@ var express             = require('express'),
 /******** sensor readings **********/
 
 router.route('/userinfo')
-    .get(dataHelpers.getUserInfo)
-    .post(dataHelpers.textedUserInfo)
-    .delete(dataHelpers.deleteUserInfo);
+    .get(userinfoHelpers.getUserInfo)
+    .post(userinfoHelpers.textedUserInfo)
+    .delete(userinfoHelpers.deleteUserInfo);
 
 router.route('/userinfo/:id')
-    .get(dataHelpers.getOneUserInfo)
-    .delete(dataHelpers.deleteOneUserInfo);
+    .get(userinfoHelpers.getOneUserInfo)
+    .delete(userinfoHelpers.deleteOneUserInfo);
 
 module.exports = router;
 
