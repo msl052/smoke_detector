@@ -7,12 +7,20 @@ router.get('/', (req,res) => {
 });
 
 router.get('/camera', (req,res) => {
-res.render('camera');
+    res.render('camera');
 });
 
 router.get('/current_info', (req,res) => {
-    res.render('info');
-  });
+    var setting;
+    db.userInfo.findOne({})
+    .then( function(result) {
+      setting = result;
+      res.render('info', {info: setting});
+    })
+    .catch (function(err) {
+      res.send(err);
+    });
+});
 
 
 router.post('/configure',  (req,res) =>{
@@ -27,7 +35,7 @@ router.post('/seedInfo', (req,res) => {
       address: 'UCSD',
       aptNumber: '234',
       phoneNumber: '1234354565',
-      emergencyNumber: '563456756', 
+      emergencyNumber: '563456756',
     } */
     db.userInfo.findOneAndUpdate({}, req.body.info , {'new': true, upsert:true})
     .then(function(edited) {

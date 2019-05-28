@@ -2,7 +2,8 @@ var	  express		  = require('express'),
 	  bodyParser 	  = require('body-parser'),
 	  app	      	  = express();
 
-var   indexRoutes 	  = require('./routes/index');
+var 	indexRoutes 	 = require('./routes/index'),
+      apiRoutes        = require('./routes/api');
 
 app.set('port', (process.env.PORT || 3000));
 /*app.get('/', (req,res) => {
@@ -17,8 +18,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 /*************** ROUTES ****************/
 
-app.use('/', indexRoutes); 
-
+app.use('/', indexRoutes);
+app.use('/api', apiRoutes);
 
 /*
 app.get('/', (req,res) => {
