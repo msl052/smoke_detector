@@ -4,7 +4,7 @@ var infoSchema = new mongoose.Schema({
 	name:{
 		type: String
 	},
-		address:{
+	address:{
 		type: String
 	},
 	aptNumber: {
