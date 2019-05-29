@@ -1,4 +1,4 @@
-var mongoose	=require('mongoose');
+var mongoose	= require('mongoose');
 
 var infoSchema = new mongoose.Schema({
 	name:{
@@ -7,16 +7,13 @@ var infoSchema = new mongoose.Schema({
 	address:{
 		type: String
 	},
-	aptNumber: {
-		type: String
-	},
 	phoneNumber: {
 		type: Number,
 		required: true
 	},
 	emergencyNumber: {
 		type: Number
-	},
+	}
 
 });
 var userInfo = mongoose.model('userInfo',infoSchema);

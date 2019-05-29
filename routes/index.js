@@ -12,10 +12,15 @@ router.get('/camera', (req,res) => {
 
 router.get('/current_info', (req,res) => {
     var setting;
+    console.log(setting);
     db.userInfo.findOne({})
     .then( function(result) {
+      var infos = {
+        
+      };
       setting = result;
       res.render('info', {info: setting});
+      console.logt(result);
     })
     .catch (function(err) {
       res.send(err);
