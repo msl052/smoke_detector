@@ -7,49 +7,48 @@
 <form class="ui form" action='/configure' method='post'>
 	<h1 class="ui centered header">Your Current Contact Information</h1>
 	<div class="field">
-        <label>Upload Succesful!</label>
-        <div class="field">
-		<label>Name</label>
-			<div class="field">
-			<div class="twelve wide field">
-				<input type="text" value='<%= info.name %>'>
-    </div>
+    <div class="ui divider"></div>
     <div class="field">
-        <label>Address</label>
-        <div class="fields">
-            <div class="twelve wide field">
-                <input type="text" name="address" value='<%= info.address%>'>
-            </div>
+		<label>Name</label>
+		<div class="field">
+			<div class="twelve wide field">
+				<input readonly="" type="text" placeholder='<%= info.name %>'>
+      </div>
+    <div class="field">
+      <label>Address</label>
+      <div class="fields">
+        <div class="twelve wide field">
+          <input readonly="" type="text" name="address" placeholder='<%= info.address%>'>
         </div>
+      </div>
     </div>
     <div class="ui form">
-        <div class="inline fields">
-        <label>Phone Number</label>
-            <div class="field">
-                <input type="text" name="phoneNumber" value='<%= info.phoneNumber%>'>
-            </div>
+      <div class="inline fields">
+      <label>Phone Number</label>
+        <div class="field">
+          <input readonly="" type="text" name="phoneNumber" placeholder='<%= info.phoneNumber%>'>
         </div>
+      </div>
     </div>
     <div class="ui form">
-        <div class="inline fields">
-            <input type='checkbox' name='options[emergencyContact]'> 
-                    <label>Emergency Phone Number</label>
-                    <div class='control'>
-                            <input type="text" name="emergencyNumber" value='<%= info.emergencyNumber%>'>
-                        </div>
-            </div>
-          <div class="inline fields">              
-            <input type='checkbox' name='options[911]'> 
-                        <label> Police </label>
-                        <div class="field">
-                  <div class='control'>
-                              <input type="text" name="Police" value="911">
-                              </div>
-                  </div>
+      <div class="inline fields">
+        <input type='checkbox' name='options[emergencyContact]'>
+        <label>Emergency Phone Number</label>
+        <div class='control'>
+          <input readonly="" type="text" name="emergencyNumber" placeholder='<%= info.emergencyNumber%>'>
         </div>
+      </div>
+      <div class="inline fields">
+        <input type='checkbox' name='options[911]'>
+        <label> Police </label>
+        <div class="field">
+          <div class='control'>
+            <input readonly="" type="text" name="Police" placeholder="911">
+          </div>
+        </div>
+      </div>
     </div>
-
-
+  </div>
 </form>
 
 
