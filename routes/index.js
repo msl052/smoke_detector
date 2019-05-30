@@ -11,19 +11,17 @@ router.get('/camera', (req,res) => {
 });
 
 router.get('/current_info', (req,res) => {
-    var setting;
-    console.log(setting);
+    //return db.userInfo.findOne();
     db.userInfo.findOne({})
     .then( function(result) {
-      var infos = {
-        
-      };
-      setting = result;
-      res.render('info', {info: setting});
-      console.logt(result);
+      //console.log(result.phoneNumber);
+      result.phoneNumber = formatPhoneNumber(result.phoneNumber);
+      //console.log(result.phoneNumber);
+      res.render('info', {info: result});
     })
     .catch (function(err) {
       res.send(err);
+      console.log(err);
     });
 });
 
@@ -52,7 +50,16 @@ router.post('/seedInfo', (req,res) => {
   })
 });
 
-
+function formatPhoneNumber(phoneNumberString) {
+  var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
+  var match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/)
+  if (match) {
+    var intlCode = (match[1] ? '+1':'+1')
+    return [intlCode,match[2],match[3],match[4]].join('')
+    //return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('')
+  }
+  return null
+}
 
 module.exports=router;
 

@@ -8,11 +8,14 @@ var infoSchema = new mongoose.Schema({
 		type: String
 	},
 	phoneNumber: {
-		type: Number,
+		type: String,
 		required: true
 	},
+	phoneNumberDisplay: {
+	  type: String
+	},
 	emergencyNumber: {
-		type: Number
+		type: String
 	}
 
 });
