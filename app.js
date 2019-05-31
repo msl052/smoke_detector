@@ -52,7 +52,7 @@ app.post('/configure',  (req,res) =>{
 
 });
 */
-
+app.listen(app.get('port'),() => console.log('Listening on port ' + app.get('port')));
 
 const account_sid = "ACb63c109c52daf392846e20ed706d4afd"
 const auth_token = "99e800ac8597937082f6e0e946d66fa7"
@@ -81,4 +81,6 @@ app.post('/sms', (req, res) => {
   res.end(twiml.toString());
 });
 
-app.listen(app.get('port'),() => console.log('Listening on port ' + app.get('port')));
+http.createServer(app).listen(3000, () => {
+  console.log('Express server listening on port 3000');
+});
