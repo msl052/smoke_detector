@@ -10,8 +10,14 @@ exports.getUserInfo = function(req, res) {
 		        });
 }
 
-exports.textedUserInfo = function(req, res) {
-	  res.json({message: 'Texted the User'});
+exports.editUserInfo = function(req, res) {
+    db.Stats.findOneAndUpdate({}, req.body, {'new': true, upsert: true})
+    .then( function(editedUserInfo) {
+        res.json(editedUserInfo);
+    })
+    .catch( function(err) {
+        res.send(err);
+    });
 }
 
 exports.deleteUserInfo = function(req, res) {

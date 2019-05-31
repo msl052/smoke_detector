@@ -12,7 +12,8 @@
     "dotenv": "^7.0.0",
     "ejs": "^2.6.1",
     "express": "^4.17.0",
-    "mongoose": "^5.5.9"
+    "mongoose": "^5.5.9",
+    "twilio": "^3.31.1"
   },
   "engines": {
     "node": "v11.14.0",

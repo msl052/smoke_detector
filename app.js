@@ -52,4 +52,33 @@ app.post('/configure',  (req,res) =>{
 
 });
 */
+
+
+const account_sid = "ACb63c109c52daf392846e20ed706d4afd"
+const auth_token = "99e800ac8597937082f6e0e946d66fa7"
+const client = require('twilio')(account_sid,auth_token);
+
+client.messages
+  .create({
+     body: 'whats up?',
+      from: "+14245328392",
+     to: "+18186352564"
+   })
+  .then(message => console.log(message.sid));
+
+
+
+const http = require('http');
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+
+
+app.post('/sms', (req, res) => {
+  const twiml = new MessagingResponse();
+
+  twiml.message('The Robots are coming! Head for the hills!');
+
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+});
+
 app.listen(app.get('port'),() => console.log('Listening on port ' + app.get('port')));
