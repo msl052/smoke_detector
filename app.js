@@ -1,6 +1,7 @@
 var	  express		  = require('express'),
 	  bodyParser 	  = require('body-parser'),
-	  app	      	  = express();
+	  app	      	  = express(),
+	  twilio        = require('twilio');
 
 var 	indexRoutes 	 = require('./routes/index'),
       apiRoutes        = require('./routes/api');
@@ -52,7 +53,9 @@ app.post('/configure',  (req,res) =>{
 
 });
 */
+
 app.listen(app.get('port'),() => console.log('Listening on port ' + app.get('port')));
+//app.get('/api/sms');
 
 const account_sid = "ACb63c109c52daf392846e20ed706d4afd"
 const auth_token = "99e800ac8597937082f6e0e946d66fa7"
@@ -60,9 +63,9 @@ const client = require('twilio')(account_sid,auth_token);
 
 client.messages
   .create({
-     body: 'whats up?',
-      from: "+14245328392",
-     to: "+18186352564"
+    body: 'whats up?',
+    from: "+14245328392",
+    to  : "+18186352564"
    })
   .then(message => console.log(message.sid));
 
@@ -81,6 +84,6 @@ app.post('/sms', (req, res) => {
   res.end(twiml.toString());
 });
 
-http.createServer(app).listen(3000, () => {
+http.createServer(app).listen(1337, () => {
   console.log('Express server listening on port 3000');
 });

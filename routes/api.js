@@ -16,7 +16,7 @@ router.route('/userinfo/:id')
 
 router.route('/sms')
     .get(smsHelpers.sendSMS)
-    .post(smsHelpers.postCallBack);
+    .post(smsHelpers.callBack);
 
 module.exports = router;
 
