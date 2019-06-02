@@ -1,8 +1,8 @@
 //import myVar from './app.js'
-var db = require('../models');
+var db          = require('../models');
 var http        = require('http');
 var bodyParser  = require('body-parser');
-    var  twilio      = require('twilio');
+var twilio      = require('twilio');
     //const account_sid = "AC17fd2606313da130848caa9cad2dfe66";
     //const auth_token = "58ac80c5d3234ed2903db5a986ba990c";
 //var app = require('../app');
@@ -12,6 +12,7 @@ exports.sendSMS = function(req, res) {
     // Download the helper library from https://www.twilio.com/docs/node/install
     // Your Account Sid and Auth Token from twilio.com/console
     // DANGER! This is insecure. See http://twil.io/secure
+    console.log('Hello')
     const account_sid = "AC17fd2606313da130848caa9cad2dfe66";
     const auth_token = "58ac80c5d3234ed2903db5a986ba990c";
     const client = require('twilio')(accountSid, authToken);
@@ -25,7 +26,7 @@ exports.sendSMS = function(req, res) {
        })
       .then(message => console.log(message.sid));
 
-    myVar = setTimeout(function(){
+    /*myVar = setTimeout(function(){
                           client.messages
                             .create({
                               body: "Timeout. Messaged Emergency Contact",
@@ -33,7 +34,7 @@ exports.sendSMS = function(req, res) {
                               to: "+18052326140"
                             })
                             .then(message => console.log(message.sid));
-                                  }, 15000); //180000
+                                  }, 15000); //180000*/
 	//res.json({message: 'This is from Eric'});
 	//console.log('Sent a message');
 }
