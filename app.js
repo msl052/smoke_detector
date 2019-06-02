@@ -136,7 +136,7 @@ client.messages
     to: "+18052326140"
    })
   .then(message => console.log(message.sid));
-/*
+
 var myVar = setTimeout(function(){
                           client.messages
                             .create({
@@ -145,8 +145,8 @@ var myVar = setTimeout(function(){
                               to: "+18052326140"
                             })
                             .then(message => console.log(message.sid));
-                                  }, 30000); //180000
-*/
+                                  }, 15000); //180000
+
 /****************Response********************/
 
 //const http = require('http');
