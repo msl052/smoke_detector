@@ -18,7 +18,6 @@ exports.sendSMS = function(req, res) {
             to: '+15558675310'
           })
           .then(message => console.log(message.sid));
-	v 
 	  
 	res.json({message: 'This is from Eric'});
 	console.log('Sent a message');
