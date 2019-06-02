@@ -1,5 +1,8 @@
 //import myVar from './app.js'
 var db = require('../models');
+var http        = require('http');
+var bodyParser  = require('body-parser');
+    var  twilio      = require('twilio');
 //var app = require('../app');
 var myVar;
 
