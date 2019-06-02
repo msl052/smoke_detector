@@ -30,10 +30,10 @@ exports.callBack = function(req, res) {
 
     if (req.body.Body == 'Yes') {
         twiml.message('Help is on the way');
-        clearTimeout(myVar);
+        //clearTimeout(myVar);
     } else if (req.body.Body == 'No') {
         twiml.message('Glad to hear. Have a good day!');
-        clearTimeout(myVar);
+        //clearTimeout(myVar);
     } else {
         twiml.message(
           'Please respond Yes or No'
