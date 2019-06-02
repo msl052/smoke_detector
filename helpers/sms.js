@@ -1,6 +1,6 @@
 //import myVar from './app.js'
 var db = require('../models');
-var app = require('../app')
+var app = require('../app');
 
 exports.sendSMS = function(req, res) {
     // Download the helper library from https://www.twilio.com/docs/node/install
@@ -31,7 +31,9 @@ exports.callBack = function(req, res) {
 
     if (req.body.Body == 'Yes') {
         twiml.message('Help is on the way');
+
         clearTimeout(app.myVar);
+        console.log("Canceled Timer")
     } else if (req.body.Body == 'No') {
         twiml.message('Glad to hear. Have a good day!');
         clearTimeout(app.myVar);
