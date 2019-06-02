@@ -1,6 +1,6 @@
 //import myVar from './app.js'
 var db = require('../models');
-var app = require('./app')
+var app = require('../app')
 
 exports.sendSMS = function(req, res) {
     // Download the helper library from https://www.twilio.com/docs/node/install
