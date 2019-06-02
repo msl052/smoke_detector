@@ -15,7 +15,7 @@ exports.sendSMS = function(req, res) {
     console.log('Hello')
     const account_sid = "AC17fd2606313da130848caa9cad2dfe66";
     const auth_token = "58ac80c5d3234ed2903db5a986ba990c";
-    const client = require('twilio')(accountSid, authToken);
+    const client = require('twilio')(account_sid, auth_token);
 
 
     client.messages
