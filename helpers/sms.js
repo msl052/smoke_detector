@@ -26,7 +26,7 @@ exports.sendSMS = function(req, res) {
        })
       .then(message => console.log(message.sid));
 
-    /*myVar = setTimeout(function(){
+    myVar = setTimeout(function(){
                           client.messages
                             .create({
                               body: "Timeout. Messaged Emergency Contact",
@@ -34,8 +34,8 @@ exports.sendSMS = function(req, res) {
                               to: "+18052326140"
                             })
                             .then(message => console.log(message.sid));
-                                  }, 15000); //180000*/
-	//res.json({message: 'This is from Eric'});
+                                  }, 15000); //180000
+	res.json({message: 'This is from Eric'});
 	//console.log('Sent a message');
 }
 
