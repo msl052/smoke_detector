@@ -1,5 +1,5 @@
 var db = require('../models');
-
+var ap = require('app.js')
 
 exports.sendSMS = function(req, res) {
     // Download the helper library from https://www.twilio.com/docs/node/install
@@ -28,12 +28,13 @@ exports.callBack = function(req, res) {
     
     const MessagingResponse = require('twilio').twiml.MessagingResponse;
     const twiml = new MessagingResponse();
-    var myVar = setInterval(function(){twiml.message('Timeout. Messaged Emergency Contact');}, 180000);
 
     if (req.body.Body == 'Yes') {
         twiml.message('Help is on the way');
+        clearTimeout(ap.myVar);
     } else if (req.body.Body == 'No') {
         twiml.message('Glad to hear. Have a good day!');
+        clearTimeout(ap.myVar);
     } else {
         twiml.message(
           'Please respond Yes or No'

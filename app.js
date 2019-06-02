@@ -131,12 +131,21 @@ const client = require('twilio')(account_sid,auth_token);
 
 client.messages
   .create({
-    body: "Min Suk. Are You Ok? Yes or No. If you dont 
-          respond within 3 min we will contact Emergency Number",
+    body: "Min Suk. Are You Ok? Yes or No. If you dont respond within 3 min we will contact Emergency Number",
     from: "+18057931885",
     to: "+18052326140"
    })
   .then(message => console.log(message.sid));
+
+var myVar = setTimeout(function(){
+                          client.messages
+                            .create({
+                              body: "Timeout. Messaged Emergency Contact",
+                              from: "+18057931885",
+                              to: "+18052326140"
+                            })
+                            .then(message => console.log(message.sid));
+                                  }, 10000); //180000
 
 /****************Response********************/
 
