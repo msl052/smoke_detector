@@ -7,8 +7,8 @@ exports.sendSMS = function(req, res) {
     // Download the helper library from https://www.twilio.com/docs/node/install
     // Your Account Sid and Auth Token from twilio.com/console
     // DANGER! This is insecure. See http://twil.io/secure
-    const accountSid = 'ACb63c109c52daf392846e20ed706d4afd';
-    const authToken = '99e800ac8597937082f6e0e946d66fa7';
+    const account_sid = "AC17fd2606313da130848caa9cad2dfe66"
+    const auth_token = "58ac80c5d3234ed2903db5a986ba990c"
     const client = require('twilio')(accountSid, authToken);
 
 
