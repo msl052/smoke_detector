@@ -123,7 +123,7 @@ app.use('/api', apiRoutes);
 
 app.listen(app.get('port'),() => console.log('Listening on port ' + app.get('port')));
 /************** Text ******************/
-
+/*
 const account_sid = "AC17fd2606313da130848caa9cad2dfe66"
 const auth_token = "58ac80c5d3234ed2903db5a986ba990c"
 const client = require('twilio')(account_sid,auth_token);
@@ -146,8 +146,9 @@ var myVar = setTimeout(function(){
                             })
                             .then(message => console.log(message.sid));
                                   }, 15000); //180000
-
+*/
 /****************Response********************/
+/*
 console.log(myVar);
 //const http = require('http');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
@@ -176,4 +177,5 @@ http.createServer(app).listen(1337, () => {
   console.log('Express server listening on port 1337');
 });
 
-module.exports = myVar;
+module.exports = myVar
+*/
