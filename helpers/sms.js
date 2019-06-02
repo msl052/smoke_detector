@@ -1,5 +1,6 @@
 var db = require('../models');
 
+
 exports.sendSMS = function(req, res) {
     // Download the helper library from https://www.twilio.com/docs/node/install
     // Your Account Sid and Auth Token from twilio.com/console
@@ -7,7 +8,8 @@ exports.sendSMS = function(req, res) {
     const accountSid = 'ACb63c109c52daf392846e20ed706d4afd';
     const authToken = '99e800ac8597937082f6e0e946d66fa7';
     const client = require('twilio')(accountSid, authToken);
-    
+
+
     client.messages
           .create({
             body: 'body',
@@ -16,15 +18,17 @@ exports.sendSMS = function(req, res) {
             to: '+15558675310'
           })
           .then(message => console.log(message.sid));
-	 
+	v 
 	  
 	res.json({message: 'This is from Eric'});
 	console.log('Sent a message');
 }
 
 exports.callBack = function(req, res) {
+    
     const MessagingResponse = require('twilio').twiml.MessagingResponse;
     const twiml = new MessagingResponse();
+    var myVar = setInterval(function(){twiml.message('Timeout. Messaged Emergency Contact');}, 180000);
 
     if (req.body.Body == 'Yes') {
         twiml.message('Help is on the way');
