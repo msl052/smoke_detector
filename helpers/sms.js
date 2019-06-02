@@ -34,8 +34,8 @@ exports.sendSMS = function(req, res) {
                             })
                             .then(message => console.log(message.sid));
                                   }, 15000); //180000
-	res.json({message: 'This is from Eric'});
-	console.log('Sent a message');
+	//res.json({message: 'This is from Eric'});
+	//console.log('Sent a message');
 }
 
 exports.callBack = function(req, res) {
