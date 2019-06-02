@@ -158,7 +158,8 @@ app.post('/sms', (req, res) => {
 
   if (req.body.Body == 'Yes') {
     twiml.message('Help is on the way');
-    clearTimeout(myVar);
+    window.clearTimeout(myVar);
+    console.log(myVar);
   } else if (req.body.Body == 'No') {
     twiml.message('Glad to hear. Have a good day!');
     clearTimeout(myVar);
