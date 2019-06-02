@@ -23,5 +23,19 @@ exports.sendSMS = function(req, res) {
 }
 
 exports.callBack = function(req, res) {
-    res.send(req.body);
+    const MessagingResponse = require('twilio').twiml.MessagingResponse;
+    const twiml = new MessagingResponse();
+
+    if (req.body.Body == 'Yes') {
+        twiml.message('Help is on the way');
+    } else if (req.body.Body == 'No') {
+        twiml.message('Glad to hear. Have a good day!');
+    } else {
+        twiml.message(
+          'Please respond Yes or No'
+        );
+    }
+
+    res.writeHead(200, { 'Content-Type': 'text/xml' });
+    res.end(twiml.toString());
 }
