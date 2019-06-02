@@ -16,6 +16,9 @@ var infoSchema = new mongoose.Schema({
 	},
 	emergencyNumber: {
 		type: String
+	},
+	timerOff: {
+		type: Boolean
 	}
 
 });

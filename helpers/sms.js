@@ -30,10 +30,10 @@ exports.callBack = function(req, res) {
     const twiml = new MessagingResponse();
 
     if (req.body.Body == 'Yes') {
-        twiml.message('Help is on the way');
-
+        //twiml.message('Help is on the way. WAIT');
+        twiml.message(myVar);
         clearTimeout(app.myVar);
-        console.log("Canceled Timer")
+        console.log("Canceled Timer");
     } else if (req.body.Body == 'No') {
         twiml.message('Glad to hear. Have a good day!');
         clearTimeout(app.myVar);

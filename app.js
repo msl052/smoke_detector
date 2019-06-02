@@ -148,7 +148,7 @@ var myVar = setTimeout(function(){
                                   }, 15000); //180000
 
 /****************Response********************/
-
+console.log(myVar);
 //const http = require('http');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 //app.use(bodyParser.urlencoded({ extended: false }));

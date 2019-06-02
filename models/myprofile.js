@@ -34,7 +34,6 @@ var myprofileSchema = new mongoose.Schema({
 		type: String,
 		//required: 'Must record emergency number'
 	}
-
 });
 
 var MyProfile = mongoose.model('MyProfile', myprofileSchema);
