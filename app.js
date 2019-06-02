@@ -121,7 +121,7 @@ app.use('/', indexRoutes);
 app.use('/api', apiRoutes);
 
 
-/**************Text******************/
+/************** Text ******************/
 
 const account_sid = "ACb63c109c52daf392846e20ed706d4afd"
 const auth_token = "99e800ac8597937082f6e0e946d66fa7"
@@ -130,9 +130,9 @@ const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 client.messages
   .create({
-     body: 'julies code?',
-      from: "+14245328392",
-     to: "+18186352564"
+    body: 'julies code?',
+    from: "+14245328392",
+    to: "+18186352564"
    })
   .then(message => console.log(message.sid));
 
