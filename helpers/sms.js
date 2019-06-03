@@ -27,11 +27,9 @@ exports.sendSMS = function(req, res) {
     //const client = require('twilio')(account_sid, auth_token);
     db.userInfo.findOne({})
       .then( function(result) {
-        //console.log(result.phoneNumber);
         name = result.name;
         phoneNumber = result.phoneNumber;
         emergencyNumber = result.emergencyNumber;
-        //console.log(result.phoneNumber);
       });
 
 
@@ -70,11 +68,9 @@ exports.callBack = function(req, res) {
     
     db.userInfo.findOne({})
     .then( function(result) {
-      //console.log(result.phoneNumber);
       name = result.name;
       phoneNumber = result.phoneNumber;
       emergencyNumber = result.emergencyNumber;
-      //console.log(result.phoneNumber);
     });
     
     
