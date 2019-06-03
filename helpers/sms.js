@@ -15,7 +15,13 @@ var name = "Min Suk Lee";
 
 var myVar;
 
-emergencyNumber = db.userInfo.emergencyNumber
+ db.userInfo.findOne({})
+    .then( function(result) {
+      //console.log(result.phoneNumber);
+      phoneNumber = result.phoneNumber;
+      emergencyNumber = result.emergencyNumber;
+      //console.log(result.phoneNumber);
+    });
 
 exports.sendSMS = function(req, res) {
     // Download the helper library from https://www.twilio.com/docs/node/install
