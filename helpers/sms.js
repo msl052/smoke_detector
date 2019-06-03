@@ -75,7 +75,7 @@ exports.callBack = function(req, res) {
     } else if (req.body.Body == 'No') {
         client.messages
           .create({
-            body: emergencyNumber.toString(),
+            body: "Glad to hear that you are ok.",
             from: fromNum,
             to: phoneNumber
           })
