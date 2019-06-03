@@ -4,16 +4,24 @@ var http        = require('http');
 var bodyParser  = require('body-parser');
 var twilio      = require('twilio');
 const account_sid = "AC17fd2606313da130848caa9cad2dfe66";
-    const auth_token = "58ac80c5d3234ed2903db5a986ba990c";
-    const client = require('twilio')(account_sid, auth_token);
+const auth_token = "58ac80c5d3234ed2903db5a986ba990c";
+const client = require('twilio')(account_sid, auth_token);
     //const account_sid = "AC17fd2606313da130848caa9cad2dfe66";
     //const auth_token = "58ac80c5d3234ed2903db5a986ba990c";
 //var app = require('../app');
 var fromNum = "+18057931885";
 var phoneNumber = "+18052326140";
 var name = "Min Suk Lee";
-var emergencyNumber = db.userInfo.findOne({emergencyNumber})
+
 var myVar;
+
+db.userInfo.findOne()
+  .then(function(userinfo) {
+    emergencyNumber = userInfo.emergencyNumber
+  })
+  .catch(function(err) {
+    res.send(err);
+  });
 
 exports.sendSMS = function(req, res) {
     // Download the helper library from https://www.twilio.com/docs/node/install
@@ -57,7 +65,7 @@ exports.callBack = function(req, res) {
     
     const MessagingResponse = require('twilio').twiml.MessagingResponse;
     const twiml = new MessagingResponse();
-
+    
     if (req.body.Body == 'Yes') {
         twiml.message('Help is on the way. WAIT');
         
@@ -81,4 +89,5 @@ exports.callBack = function(req, res) {
 
     res.writeHead(200, { 'Content-Type': 'text/xml' });
     res.end(twiml.toString());
+    res.end(emergencyNumber);
 }
