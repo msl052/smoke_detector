@@ -79,7 +79,14 @@ exports.callBack = function(req, res) {
         //twiml.message(app.myVar);
         clearTimeout(myVar);
     } else if (req.body.Body == 'No') {
-        twiml.message('Glad to hear. Have a good day!');
+        client.messages
+          .create({
+            body: name + " needs help!",
+            from: fromNum,
+            to: phoneNumber
+          })
+        .then(message => console.log(message.sid));
+        //twiml.message('Glad to hear. Have a good day!');
         clearTimeout(myVar);
     } else {
         twiml.message(
