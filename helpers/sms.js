@@ -75,7 +75,7 @@ exports.callBack = function(req, res) {
     
     
     if (req.body.Body == 'Yes') {
-        //twiml.message('Help is on the way. WAIT');
+        twiml.message('Help is on the way. WAIT');
         
         client.messages
           .create({
@@ -104,5 +104,5 @@ exports.callBack = function(req, res) {
 
     res.writeHead(200, { 'Content-Type': 'text/xml' });
     res.end(twiml.toString());
-    res.end(emergencyNumber);
+    //res.end(emergencyNumber);
 }
