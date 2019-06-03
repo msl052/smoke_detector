@@ -21,9 +21,9 @@ exports.sendSMS = function(req, res) {
 
     client.messages
       .create({
-        body: "Min Suk. Are You Ok? Yes or No. If you dont respond within 3 min we will contact Emergency Number",
+        body: db.userInfo + " Are You Ok? Yes or No. If you dont respond within 3 min we will contact Emergency Number",
         from: fromNum,
-        to: userInfo.phoneNumber
+        to: db.userInfo.phoneNumber
        })
       .then(message => console.log(message.sid));
 
@@ -32,14 +32,14 @@ exports.sendSMS = function(req, res) {
                             .create({
                               body: "Timeout. Messaged Emergency Contact",
                               from: fromNum,
-                              to: userInfo.phoneNumber
+                              to: db.userInfo.phoneNumber
                             })
                             .then(message => console.log(message.sid));
                           client.messages
                             .create({
-                              body: userInfo.name + " needs help!",
+                              body: db.userInfo.name + " needs help!",
                               from: fromNum,
-                              to: userInfo.emergencyNumber
+                              to: db.userInfo.emergencyNumber
                             })
                             .then(message => console.log(message.sid));
                                   }, 15000); //180000
@@ -56,9 +56,9 @@ exports.callBack = function(req, res) {
         twiml.message('Help is on the way. WAIT');
         client.messages
           .create({
-            body: userInfo.name + " needs help!",
+            body: db.userInfo.name + " needs help!",
             from: fromNum,
-            to: userInfo.emergencyNumber
+            to: db.userInfo.emergencyNumber
           })
         .then(message => console.log(message.sid));
         //twiml.message(app.myVar);
