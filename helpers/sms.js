@@ -11,8 +11,8 @@ const client = require('twilio')(account_sid, auth_token);
 //var app = require('../app');
 var emergencyNumber;
 var fromNum = "+18057931885";
-var phoneNumber = "+18052326140";
-var name = "Eric";
+var phoneNumber; // = "+18052326140";
+var name; // = "Eric";
 
 var myVar;
 
