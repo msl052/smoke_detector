@@ -15,7 +15,7 @@ var name = "Min Suk Lee";
 
 var myVar;
 
-emergencyNumber = db.userInfo.find(emergencyNumber)
+emergencyNumber = db.userInfo.emergencyNumber
 
 exports.sendSMS = function(req, res) {
     // Download the helper library from https://www.twilio.com/docs/node/install
