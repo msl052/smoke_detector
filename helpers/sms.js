@@ -9,19 +9,14 @@ const client = require('twilio')(account_sid, auth_token);
     //const account_sid = "AC17fd2606313da130848caa9cad2dfe66";
     //const auth_token = "58ac80c5d3234ed2903db5a986ba990c";
 //var app = require('../app');
+var emergencyNumber;
 var fromNum = "+18057931885";
 var phoneNumber = "+18052326140";
 var name = "Min Suk Lee";
 
 var myVar;
 
- db.userInfo.findOne({})
-    .then( function(result) {
-      //console.log(result.phoneNumber);
-      phoneNumber = result.phoneNumber;
-      emergencyNumber = result.emergencyNumber;
-      //console.log(result.phoneNumber);
-    });
+emergencyNumber = info.emergencyNumber;
 
 exports.sendSMS = function(req, res) {
     // Download the helper library from https://www.twilio.com/docs/node/install
