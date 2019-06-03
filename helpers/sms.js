@@ -69,7 +69,7 @@ exports.callBack = function(req, res) {
     const twiml = new MessagingResponse();
     
     if (req.body.Body == 'Yes') {
-        twiml.message('Help is on the way. WAIT');
+        //twiml.message('Help is on the way. WAIT');
         
         client.messages
           .create({
