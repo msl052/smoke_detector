@@ -17,8 +17,11 @@ var infoSchema = new mongoose.Schema({
 	emergencyNumber: {
 		type: String
 	},
-	timerOff: {
-		type: Boolean
+	account_sid: {
+	  type: String
+	},
+	account_token: {
+	  type: String
 	}
 
 });
