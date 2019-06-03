@@ -16,14 +16,6 @@ var name; // = "Eric";
 
 var myVar;
 
- db.userInfo.findOne({})
-    .then( function(result) {
-      //console.log(result.phoneNumber);
-      name = result.name;
-      phoneNumber = result.phoneNumber;
-      emergencyNumber = result.emergencyNumber;
-      //console.log(result.phoneNumber);
-    });
 
 exports.sendSMS = function(req, res) {
     // Download the helper library from https://www.twilio.com/docs/node/install
@@ -33,6 +25,14 @@ exports.sendSMS = function(req, res) {
     //const account_sid = "AC17fd2606313da130848caa9cad2dfe66";
     //const auth_token = "58ac80c5d3234ed2903db5a986ba990c";
     //const client = require('twilio')(account_sid, auth_token);
+    db.userInfo.findOne({})
+      .then( function(result) {
+        //console.log(result.phoneNumber);
+        name = result.name;
+        phoneNumber = result.phoneNumber;
+        emergencyNumber = result.emergencyNumber;
+        //console.log(result.phoneNumber);
+      });
 
 
     client.messages
@@ -67,6 +67,16 @@ exports.callBack = function(req, res) {
     
     const MessagingResponse = require('twilio').twiml.MessagingResponse;
     const twiml = new MessagingResponse();
+    
+    db.userInfo.findOne({})
+    .then( function(result) {
+      //console.log(result.phoneNumber);
+      name = result.name;
+      phoneNumber = result.phoneNumber;
+      emergencyNumber = result.emergencyNumber;
+      //console.log(result.phoneNumber);
+    });
+    
     
     if (req.body.Body == 'Yes') {
         //twiml.message('Help is on the way. WAIT');
