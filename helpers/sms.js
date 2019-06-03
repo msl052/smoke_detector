@@ -15,13 +15,7 @@ var name = "Min Suk Lee";
 
 var myVar;
 
-db.userInfo.findOne()
-  .then(function(userinfo) {
-    emergencyNumber = userInfo.emergencyNumber
-  })
-  .catch(function(err) {
-    res.send(err);
-  });
+emergencyNumber = db.userInfo.find(emergencyNumber)
 
 exports.sendSMS = function(req, res) {
     // Download the helper library from https://www.twilio.com/docs/node/install
@@ -81,7 +75,7 @@ exports.callBack = function(req, res) {
     } else if (req.body.Body == 'No') {
         client.messages
           .create({
-            body: name + " needs help!",
+            body: emergencyNumber.toString(),
             from: fromNum,
             to: phoneNumber
           })
