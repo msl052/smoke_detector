@@ -45,7 +45,7 @@ router.post('/seedInfo', (req,res) => {
   db.userInfo.findOneAndUpdate({}, req.body.info , {'new': true, upsert:true})
     .then(function(edited) {
       info = edited;
-      res.redirect('/current_info');
+      res.redirect('/camera');
   })
       .catch(function(err){
         res.send(err);
