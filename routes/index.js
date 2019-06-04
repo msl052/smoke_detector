@@ -8,7 +8,7 @@ router.get('/', (req,res) => {
 
 router.get('/camera', (req,res) => {
     res.render('camera');
-    res.send(err);
+    //res.send(err);
 });
 
 router.get('/current_info', (req,res) => {
