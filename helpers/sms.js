@@ -13,6 +13,7 @@ var emergencyNumber;
 var fromNum = "+18057931885";
 var phoneNumber; // = "+18052326140";
 var name; // = "Eric";
+var address;
 
 var myVar;
 
@@ -30,12 +31,11 @@ exports.sendSMS = function(req, res) {
         name = result.name;
         phoneNumber = result.phoneNumber;
         emergencyNumber = result.emergencyNumber;
+        address = result.address;
       });
-
-
     client.messages
       .create({
-        body: name + " Are You Ok? Yes or No. If you dont respond within 3 min we will contact Emergency Number",
+        body: name + ", do you need assistance? Please respond Yes or No within the next 3 minutes",
         from: fromNum,
         to: phoneNumber
        })
@@ -44,9 +44,9 @@ exports.sendSMS = function(req, res) {
     myVar = setTimeout(function(){
                           client.messages
                             .create({
-                              body: "Timeout. Messaged Emergency Contact",
+                              body: "Fire at " + address + "." + " Please send help immediately!",
                               from: fromNum,
-                              to: phoneNumber
+                              to: emergencyNumber
                             })
                             .then(message => console.log(message.sid));
                           client.messages
@@ -71,30 +71,37 @@ exports.callBack = function(req, res) {
       name = result.name;
       phoneNumber = result.phoneNumber;
       emergencyNumber = result.emergencyNumber;
+      address = result.address;
     });
     
     
     if (req.body.Body == 'Yes') {
         twiml.message('Help is on the way. WAIT');
-        
         client.messages
           .create({
             body: name + " needs help!",
             from: fromNum,
             to: emergencyNumber
           })
-        .then(message => console.log(message.sid));
+          .then(message => console.log(message.sid));
+        client.messages
+          .create({
+             body: "Fire at " + address +"." + " Please send help immediately!",
+             from: fromNum,
+             to: emergencyNumber
+          })
+          .then(message => console.log(message.sid));
         //twiml.message(app.myVar);
         clearTimeout(myVar);
     } else if (req.body.Body == 'No') {
-        client.messages
+        /*client.messages
           .create({
             body: "Glad to hear that you are ok.",
             from: fromNum,
             to: phoneNumber
           })
-        .then(message => console.log(message.sid));
-        //twiml.message('Glad to hear. Have a good day!');
+        .then(message => console.log(message.sid));*/
+        twiml.message('Glad to hear. Have a good day!');
         clearTimeout(myVar);
     } else {
         twiml.message(
