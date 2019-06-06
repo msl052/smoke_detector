@@ -9,7 +9,6 @@ exports.getUserInfo = function(req, res) {
 		            res.send(err);
 		        });
 }
-
 exports.editUserInfo = function(req, res) {
     db.Stats.findOneAndUpdate({}, req.body, {'new': true, upsert: true})
     .then( function(editedUserInfo) {
@@ -19,7 +18,6 @@ exports.editUserInfo = function(req, res) {
         res.send(err);
     });
 }
-
 exports.deleteUserInfo = function(req, res) {
 	    db.userInfo.remove({})
 	    .then( function() {
@@ -29,7 +27,6 @@ exports.deleteUserInfo = function(req, res) {
 		            res.send(err);
 		        });
 }
-
 exports.getOneUserInfo = function(req, res) {
 	    db.userInfo.findById(req.params.id)
 	    .then( function(foundUserInfo) {
@@ -39,7 +36,6 @@ exports.getOneUserInfo = function(req, res) {
 		            res.send(err);
 		        });
 }
-
 exports.deleteOneUserInfo = function(req, res) {
 	    db.userInfo.remove({ _id: req.params.id})
 	    .then( function() {

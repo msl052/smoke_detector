@@ -5,20 +5,16 @@ var	express		= require('express'),
 router.get('/', (req,res) => {
     res.render('user');
 });
-
 router.get('/camera', (req,res) => {
     res.render('camera');
     //res.send(err);
 });
 
 router.get('/current_info', (req,res) => {
-    //return db.userInfo.findOne();
     db.userInfo.findOne({})
     .then( function(result) {
-      //console.log(result.phoneNumber);
       result.phoneNumber = formatPhoneNumber(result.phoneNumber);
       result.emergencyNumber = formatPhoneNumber(result.emergencyNumber);
-      //console.log(result.phoneNumber);
       res.render('info', {info: result});
     })
     .catch (function(err) {
@@ -28,20 +24,8 @@ router.get('/current_info', (req,res) => {
 });
 
 
-router.post('/configure',  (req,res) =>{
 
-/*
-router.post('/seedInfo', (req,res) => {
-
-    var seed = {
-      
-      firstName: 'julie',
-      lastName: 'Naglestad',
-      address: 'UCSD',
-      aptNumber: '234',
-      phoneNumber: '1234354565',
-      emergencyNumber: '563456756',
-    } */
+router.post('/configure',  (req,res) => {
   db.userInfo.findOneAndUpdate({}, req.body.info , {'new': true, upsert:true})
     .then(function(edited) {
       info = edited;
@@ -50,9 +34,6 @@ router.post('/seedInfo', (req,res) => {
       .catch(function(err){
         res.send(err);
   })
-  
-  
-  
 });
 
 function formatPhoneNumber(phoneNumberString) {
@@ -65,7 +46,6 @@ function formatPhoneNumber(phoneNumberString) {
   }
   return null
 }
-
 module.exports=router;
 
 
