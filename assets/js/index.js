@@ -4,7 +4,3 @@ function setActivePage(page_id) {
 	for( i = 1; i < items.length; i++) {
 		items[i].classList.remove('active');
 }
-
-document.getElementById(page_id).classList.add('active');
-
-}

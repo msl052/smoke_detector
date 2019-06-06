@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 
-
 var myprofileSchema = new mongoose.Schema({
 	firstName: {
 		type: String,

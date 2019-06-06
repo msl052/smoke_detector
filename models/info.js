@@ -8,8 +8,7 @@ var infoSchema = new mongoose.Schema({
 		type: String
 	},
 	phoneNumber: {
-		type: String,
-		required: true
+		type: String
 	},
 	phoneNumberDisplay: {
 	  type: String
@@ -17,12 +16,12 @@ var infoSchema = new mongoose.Schema({
 	emergencyNumber: {
 		type: String
 	},
-	account_sid: {
+	/*account_sid: {
 	  type: String
 	},
 	account_token: {
 	  type: String
-	}
+	}*/
 
 });
 var userInfo = mongoose.model('userInfo',infoSchema);
